@@ -1,0 +1,6 @@
+﻿  core.cpp
+C:\Users\12037\source\repos\Viera\Viera\core.cpp(17,14): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\12037\source\repos\Viera\Viera\core.cpp(18,17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\12037\source\repos\Viera\Viera\core.cpp(22,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\12037\source\repos\Viera\Viera\core.cpp(23,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Viera.vcxproj -> C:\Users\12037\source\repos\Viera\x64\Debug\Viera.exe
