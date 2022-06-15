@@ -17,7 +17,9 @@ class ProcCom
 		
 		vector<vector<vector<int>>> connActivations;
 		vector<vector<int>> nodeActivations;
+		vector<vector<vector<int>>> connPredictions;
 		vector<vector<int>> nodePredictions;
+		vector<bool> predictionAccuracy;
 		
 		vector<int> parentIdentifier;
 
@@ -30,9 +32,11 @@ class ProcNode
 {
 	public:
 		int identifier;
+		vector<vector<float>> connections;
+		int termination_threshold = 10;
 
-		void check_active(ProcCom& message);
-		void check_predict(ProcCom& message);
+		void adj_distal(ProcCom& message);
+		void check_predictive(ProcCom& message);
 		
 		void ProcExec(ProcCom& message);
 		ProcNode(int id, ProcCom& message);
@@ -47,12 +51,12 @@ class ProcCol
 		int adjustment_controller = 10;
 		int termination_threshold = 10;
 		vector<vector<float>> connections;
-		vector<vector<float>> distConnections;
+		
 
 		void adj_distal(ProcCom& message);
 		void adj_proximal(ProcCom& message);
 		void check_active(ProcCom& message);
-		void check_predictive(ProcCom& message);
+		
 
 		void ProcExec(ProcCom& message);
 		ProcCol(int id, ProcCom& message);
@@ -64,7 +68,8 @@ class ProcUnit
 	public:
 		int identifier;
 		vector<ProcCol> columns;
-		int activation_threshold = 10;
+		int activation_threshold = 5;
+		int prediction_threshold = 10;
 		vector<vector<int>> nodeActivations;
 		vector<vector<int>> nodePredictions;
 		

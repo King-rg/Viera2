@@ -102,6 +102,8 @@ void ProcUnit::cycle(ProcCom& message)
 	message.parentIdentifier.push_back(identifier);
 	ProcExec(message);
 
+	
+
 	//BEGIN DISTAL TRAINING HANDLING
 
 	/*
@@ -130,38 +132,35 @@ void ProcUnit::cycle(ProcCom& message)
 
 	//Check if predictive nodes were activated
 
-	vector<bool> predictionAccuracy;
-	for (int x = 0; x < size(nodePredictions); x++)
+	
+
+	for (int x = 0; x < size(message.nodePredictions); x++)
 	{
 		bool found = false;
-		for (int y = 0; y < size(nodeActivations); y++)
+		for (int y = 0; y < size(message.nodeActivations); y++)
 		{
-			if (nodePredictions[x][0] == nodeActivations[x][1])
+			if (message.nodePredictions[x][0] == message.nodeActivations[x][1])
 			{
 				found = true;
 			}
 		}
 
-		predictionAccuracy.push_back(found);
+		message.predictionAccuracy.push_back(found);
 	}
 
-	for (int x = 0; x < size(nodePredictions); x++)
-	{
-		if (predictionAccuracy[x] == true)
-		{
-			//If predictive became active increase the connection strengths
-		}
-		else
-		{
-			// If predictive did not become active decrease the connection strength.
-		}
-	}
-		
-	// If a new column was activated in the sequence, create a distal connection in the node with no connections or least distal connections to ensure nodes aren't overloaded.
 	
 
+	//Adjust distal connections
 
-	// Prune all distal connections below termination_threshold
+	message.execLevel.push_back(3);
+	message.command.push_back("adjust_dist");
+	message.parentIdentifier.push_back(identifier);
+	ProcExec(message);
+	
+	
+
+	// If a new column was activated in the sequence, create a distal connection in the node with no connections or least distal connections to ensure nodes aren't overloaded.
+
 
 
 	//Save the current activations for next cycle
@@ -170,10 +169,34 @@ void ProcUnit::cycle(ProcCom& message)
 
 	//Calculate and save current predictive nodes
 
-	message.execLevel.push_back(2);
+	message.execLevel.push_back(3);
 	message.command.push_back("get_predictive");
 	message.parentIdentifier.push_back(identifier);
 	ProcExec(message);
+
+	vector<vector<int>> nodepred;
+	
+	for (int x = 0; x < size(message.connPredictions); x++)
+	{
+		vector<int> pred;
+
+		//Calculate overlap
+		int activationScore = size(message.connPredictions[x]);
+		//Place overlap scores with id and parent id into unsorted vector
+		cout << "DEBUG FLAG" << endl;
+		int id = message.connPredictions[x][0][1];
+		int parentid = message.connPredictions[x][0][2];
+
+		if (activationScore > activation_threshold)
+		{
+			pred.push_back(activationScore);
+			pred.push_back(id);
+			pred.push_back(parentid);
+			nodepred.push_back(pred);
+		}
+	}
+
+	nodePredictions = nodepred;
 
 	//REPORTING
 	report r;

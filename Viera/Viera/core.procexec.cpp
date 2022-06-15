@@ -17,6 +17,16 @@ void ProcNode::ProcExec(ProcCom& message)
 	if (message.execLevel.back() == 3)
 	{
 		cout << "Hooking ProxExec 3" << endl;
+
+		if (message.command.back().compare("get_predictive") == 0)
+		{
+			check_predictive(message);
+		}
+
+		if (message.command.back().compare("adj_dist") == 0)
+		{
+			adj_distal(message);
+		}
 	}
 }
 
@@ -30,11 +40,6 @@ void ProcCol::ProcExec(ProcCom& message)
 		if (message.command.back().compare("get_active") == 0)
 		{
 			check_active(message);
-		}
-
-		if (message.command.back().compare("get_predictive") == 0)
-		{
-			check_predictive(message);
 		}
 
 		if (message.command.back().compare("adj_prox") == 0)

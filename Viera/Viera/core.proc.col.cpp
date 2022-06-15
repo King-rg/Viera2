@@ -84,11 +84,6 @@ void ProcCol::adj_proximal(ProcCom& message)
 	}
 }
 
-void ProcCol::check_predictive(ProcCom& message)
-{
-
-}
-
 void ProcCol::check_active(ProcCom& message)
 {
 	cout << "Getting active" << endl;
@@ -125,14 +120,3 @@ void ProcCol::check_active(ProcCom& message)
 
 	message.connActivations.push_back(activationSet);
 }
-
-
-
-
-/*
-ProcCom ProcCol::get_predictive(ProcCom activeState)
-{
-
-}
-
-*/
