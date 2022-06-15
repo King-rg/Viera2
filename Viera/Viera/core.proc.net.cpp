@@ -16,7 +16,7 @@ ProcCom ProcNet::consolidator(ProcCom& message)
 	return message;
 }
 
-ProcCom ProcNet::predict(SDR input)
+ProcCom ProcNet::forward(SDR input)
 {
 	cout << "Predicting" << endl;
 

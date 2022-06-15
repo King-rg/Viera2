@@ -1,22 +1,5 @@
-﻿  Viera.cpp
-C:\Users\12037\source\repos\King-rg\Viera\Viera\Viera.cpp(15,966): warning C4305: 'initializing': truncation from 'double' to 'float'
-  core.cpp
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.cpp(38,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.cpp(39,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  core.proc.col.cpp
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.proc.col.cpp(57,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.proc.col.cpp(99,22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.proc.col.cpp(104,25): warning C4244: 'argument': conversion from 'float' to '_Ty', possible loss of data
-          with
-          [
-              _Ty=int
-          ]
-  core.proc.net.cpp
-  core.proc.node.cpp
-  core.proc.unit.cpp
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.proc.unit.cpp(77,54): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  core.procexec.cpp
-  report.cpp
+﻿  report.cpp
+  Viera.cpp
+C:\Users\student\source\repos\King-rg\Viera2\Viera\Viera\Viera.cpp(16,966): warning C4305: 'initializing': truncation from 'double' to 'float'
   Generating Code...
-C:\Users\12037\source\repos\King-rg\Viera\Viera\core.proc.col.cpp(37): warning C4715: 'check_location': not all control paths return a value
-  Viera.vcxproj -> C:\Users\12037\source\repos\King-rg\Viera\x64\Debug\Viera.exe
+  Viera.vcxproj -> C:\Users\student\source\repos\King-rg\Viera2\Viera\x64\Debug\Viera.exe

@@ -47,6 +47,7 @@ class ProcCol
 		int adjustment_controller = 10;
 		int termination_threshold = 10;
 		vector<vector<float>> connections;
+		vector<vector<float>> distConnections;
 
 		void adj_distal(ProcCom& message);
 		void adj_proximal(ProcCom& message);
@@ -85,7 +86,7 @@ class ProcNet
 		int na = 0;
 
 		ProcCom consolidator(ProcCom& message);
-		ProcCom predict(SDR input);
+		ProcCom forward(SDR input);
 
 		void ProcExec(ProcCom& message);
 		ProcNet(SDR input, int unitAmount, int colAmount, int nodeAmount);

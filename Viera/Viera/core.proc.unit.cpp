@@ -159,6 +159,8 @@ void ProcUnit::cycle(ProcCom& message)
 		
 	// If a new column was activated in the sequence, create a distal connection in the node with no connections or least distal connections to ensure nodes aren't overloaded.
 	
+
+
 	// Prune all distal connections below termination_threshold
 
 
@@ -167,6 +169,11 @@ void ProcUnit::cycle(ProcCom& message)
 	nodeActivations = message.nodeActivations;
 
 	//Calculate and save current predictive nodes
+
+	message.execLevel.push_back(2);
+	message.command.push_back("get_predictive");
+	message.parentIdentifier.push_back(identifier);
+	ProcExec(message);
 
 	//REPORTING
 	report r;

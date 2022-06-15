@@ -32,6 +32,11 @@ void ProcCol::ProcExec(ProcCom& message)
 			check_active(message);
 		}
 
+		if (message.command.back().compare("get_predictive") == 0)
+		{
+			check_predictive(message);
+		}
+
 		if (message.command.back().compare("adj_prox") == 0)
 		{
 			adj_proximal(message);

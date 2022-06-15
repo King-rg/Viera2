@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Poco/Util/Units.h"
 
 #include "encoder.h"
 #include "core.h"
@@ -17,7 +18,7 @@ int main()
 
     ProcNet alpha(ret,2,20,5);
 
-    alpha.predict(ret);
+    alpha.forward(ret);
 
 }
 

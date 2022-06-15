@@ -84,6 +84,11 @@ void ProcCol::adj_proximal(ProcCom& message)
 	}
 }
 
+void ProcCol::check_predictive(ProcCom& message)
+{
+
+}
+
 void ProcCol::check_active(ProcCom& message)
 {
 	cout << "Getting active" << endl;
